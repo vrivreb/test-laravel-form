@@ -1,0 +1,15 @@
+label.required::after {
+    content: " *必須";
+    color: red; /* Optional: Make it visually distinct */
+    font-weight: bold; /* Optional: Emphasize the label */
+}
+
+.form-title{
+    margin-bottom: 100px;
+}
+
+#toiawase-icon{
+    width: 70px;
+    height: 50px;
+    display: flex;
+}
