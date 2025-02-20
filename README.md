@@ -12,7 +12,7 @@
 composer install --no-dev --optimize-autoloader
 ```
 
-（任意）DBのサンプルデータをマイグレートします
+DBのサンプルデータをマイグレートします
 ```
 php artisan migrate --seed
 ```
