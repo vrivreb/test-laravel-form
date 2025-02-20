@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="jp">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>お問い合わせ</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="script" href="{{ asset('js/app.js') }}">
-</head>
-<body class="container mt-5">
-    <image id="toiawase-icon" src="{{ asset('toiawase.png') }}">
-    <h2>問い合わせフォーム</h2>
+@extends('layouts.app')
+
+@section('content')
+
+    <div class="title-container">
+        <image id="toiawase-icon" src="{{ asset('toiawase.png') }}">
+        <h2>お問い合わせフォーム</h2> 
+    </div>
     
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -19,18 +14,30 @@
     <form action="/contact" method="POST">
         @csrf
         <div class="mb-3">
-            <label class="required">名前</label>
-            <input type="text" name="name" class="form-control" required>
+            <label class="required">お名前</label>
+            <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="山田 太郎" required>
+            @error('name')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label class="required">メールアドレス</label>
-            <input type="email" name="email" class="form-control border rounded-md p-2 w-full @error('email') border-red-500 @enderror" required>
+            <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="yamadatarou@gmail.com" required>
+            @error('email')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label class="required">メッセージ</label>
-            <textarea name="message" class="form-control" required></textarea>
+            <textarea name="message" id="message" class="form-control @error('message') is-invalid @enderror" placeholder="ここに質問を書いてください" required></textarea>
+            @error('message')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror       
         </div>
         <button type="submit" class="btn btn-primary">送信</button>
     </form>
-</body>
-</html>
+@endsection
+
+@push('scripts')
+<script src="{{ asset('js/app.js') }}" defer></script>
+@endpush
