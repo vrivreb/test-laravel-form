@@ -1,0 +1,66 @@
+.navbar {
+    width: 100%;
+}
+
+.container{
+    width:100%;
+    padding: 40px;
+}
+
+label.required::after {
+    content: " *必須";
+    color: red;
+    font-weight: bold;
+    font-size: smaller;
+}
+
+.form-title{
+    margin-bottom: 100px;
+}
+
+#toiawase-icon{
+    width: 70px;
+    height: 50px;
+    display: flex;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    flex-direction: column;
+}
+
+.title-container {
+    display: flex; 
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+
+table {
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+th {
+    white-space: nowrap; 
+}
+
+tr {
+    word-wrap: break-word;
+}
+
+h2 {
+    margin-bottom: 20px; 
+}
